@@ -11,7 +11,7 @@ description: GooYoobs Apps is created by Flutter
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.1.0+2
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -60,7 +60,21 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+  - assets/icon/icon.png
   - assets/icon/logo.png
+  - assets/images/edit.png
+  - assets/images/fire.png
+  - assets/images/gif.png
+  - assets/images/history.png
+  - assets/images/rocket.png
+  - assets/images/star.png
+  - assets/images/tickets.png
+  - assets/images_bottom_nav/home.png
+  - assets/images_bottom_nav/home_dis.png
+  - assets/images_bottom_nav/profile.png
+  - assets/images_bottom_nav/profile_dis.png
+  - assets/images_bottom_nav/rewards.png
+  - assets/images_bottom_nav/rewards_dis.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
