@@ -12,7 +12,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     
-    Widget widgetCard(String imgUrl, String title) {
+    Widget widgetCard(String imgUrl, String title, bool active) {
       return Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           elevation: 4.0,
@@ -28,12 +28,15 @@ class _HomeState extends State<Home> {
                 height: double.infinity,
                 zoomableImg: false,
               ),
+              active ? Container() : Container(
+                color: Colors.black.withOpacity(.5),
+              ),
               Positioned(
                 bottom: 0.0,
                 left: 0.0,
                 right: 0.0,
                 child: Container(
-                  color: Colors.green,
+                  color: active ? Colors.green : Colors.grey,
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     title,
@@ -44,6 +47,13 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
+              ),
+              InkWell(
+                onTap: () {
+                  if (active) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Level()));
+                  }
+                },
               )
             ],
           )
@@ -85,10 +95,10 @@ class _HomeState extends State<Home> {
             physics: ScrollPhysics(),
             shrinkWrap: true,
             children: <Widget>[
-              widgetCard("https://budayajawa.id/wp-content/uploads/2018/03/rumah-adat-sunda-300x201.png", "Bahasa Sunda"),
-              widgetCard("https://moondoggiesmusic.com/wp-content/uploads/2019/03/Bentuk-Rumah-Adat-Jawa-Tengah-Joglo.jpg", "Bahasa Jawa"),
-              widgetCard("https://storage.trubus.id/storage/app/public/posts/t20180810/big_0f08a6704a8e4052bcd30710501f873f91023a85.jpg", "Bahasa Sasak"),
-              widgetCard("https://media.travelingyuk.com/wp-content/uploads/2018/04/Uma-Lengge-kini-beralih-fungsi.jpg", "Bahasa Bima"),
+              widgetCard("https://moondoggiesmusic.com/wp-content/uploads/2019/03/Bentuk-Rumah-Adat-Jawa-Tengah-Joglo.jpg", "Bahasa Jawa", true),
+              widgetCard("https://budayajawa.id/wp-content/uploads/2018/03/rumah-adat-sunda-300x201.png", "Bahasa Sunda", false),
+              widgetCard("https://storage.trubus.id/storage/app/public/posts/t20180810/big_0f08a6704a8e4052bcd30710501f873f91023a85.jpg", "Bahasa Sasak", false),
+              widgetCard("https://media.travelingyuk.com/wp-content/uploads/2018/04/Uma-Lengge-kini-beralih-fungsi.jpg", "Bahasa Bima", false),
             ],
           ),
           Padding(
@@ -115,12 +125,12 @@ class _HomeState extends State<Home> {
             ),
             child: InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Level()));
+                //Navigator.push(context, MaterialPageRoute(builder: (context) => Level()));
               },
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  "Bahasa Sunda > Level 1 > Aksara",
+                  "Bahasa Jawa > Level 1 > Dasar 1",
                   style: TextStyle(
                     color: Colors.white
                   ),

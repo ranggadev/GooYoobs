@@ -7,6 +7,9 @@ import 'package:gooyoobs/ui/home/Hear.dart';
 import 'package:gooyoobs/ui/home/Kosakata.dart';
 import 'package:gooyoobs/ui/home/Talk.dart';
 import 'package:gooyoobs/ui/home/Test.dart';
+import 'package:gooyoobs/ui/home/level1/Basic1.dart';
+import 'package:gooyoobs/ui/home/level1/Basic2.dart';
+import 'package:gooyoobs/ui/home/level1/Basic3.dart';
 
 class Level extends StatefulWidget {
   @override
@@ -17,11 +20,13 @@ class _LevelState extends State<Level> {
   @override
   Widget build(BuildContext context) {
 
-    Widget widgetCard(String title) {
+    int sectionIndex = 0;
+
+    Widget widgetCard(String title, bool active) {
       return Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         margin: EdgeInsets.only(left: 4.0, bottom: 16.0, top: 16.0, right: 4.0),
-        color: Colors.green,
+        color: active ? Colors.green : Colors.grey,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(16.0),
@@ -115,108 +120,97 @@ class _LevelState extends State<Level> {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back, color: Colors.green,),
+              onPressed: () {
+                Navigator.pop(context);
+              }
+          ),
+          title: Text(
+            "Bahasa Jawa",
+            style: TextStyle(
+                fontSize: 22.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.green
+            ),
+          ),
+        ),
         body: ListView(
           padding: EdgeInsets.all(12.0),
           children: <Widget>[
-            widgetCard("Level 1"),
+            widgetCard("Level 1", true),
             widgetMateri(
-              "https://faroidcs.files.wordpress.com/2012/04/murda.jpg",
-              Colors.green,
-              "Aksara",
-              "Belajar mengenal aksara",
+              "https://img.freepik.com/free-vector/banana-white-background_1308-21517.jpg",
+              (sectionIndex == 0) ? Colors.green : Colors.grey.withOpacity(.3),
+              "DASAR 1",
+              "Nama-nama makanan",
               true,
-                () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Aksara()));
+                () async {
+                  int result = await Navigator.push(context, MaterialPageRoute(builder: (context) => Basic1()));
+                  setState(() {
+                    sectionIndex = result;
+                    print(result);
+                  });
                 }
             ),
             widgetMateri(
-              "https://img2.pngdownload.id/20181112/cle/kisspng-computer-icons-scalable-vector-graphics-vocabulary-5be94e90d57f39.1424842715420166568745.jpg",
-              Colors.grey.withOpacity(.3),
-              "Kosakata",
-              "Belajar menulis kosakata bahasa daerah",
+              "https://previews.123rf.com/images/red33/red331202/red33120200071/12152339-angry-mean-leopard-animal-vector-illustration-art.jpg",
+              (sectionIndex == 1) ? Colors.green : Colors.grey.withOpacity(.3),
+              "DASAR 2",
+              "Nama-nama hewan",
               true,
-                () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Kosakata()));
+                    () async {
+                  int result = await Navigator.push(context, MaterialPageRoute(builder: (context) => Basic2()));
+                  setState(() {
+                    sectionIndex = result;
+                    print(result);
+                  });
                 }
             ),
             widgetMateri(
               "https://img.freepik.com/free-vector/illustration-headphones-icon_53876-5571.jpg?size=338&ext=jpg",
-              Colors.grey.withOpacity(.3),
-              "Mendengarkan",
-              "Belajar mendengarkan kosakata bahasa daerah",
-              true,
-                () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Hear()));
-                }
-            ),
-            widgetMateri(
-              "https://img.freepik.com/free-vector/office-workers-talking_23-2147506354.jpg?size=338&ext=jpg",
-              Colors.grey.withOpacity(.3),
-              "Berbicara",
-              "Belajar berbicara dalam bahasa daerah",
-              true,
-                () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Talk()));
-                }
-            ),
-            widgetMateri(
-              "https://t4.ftcdn.net/jpg/01/23/05/91/240_F_123059126_s5TJUPAFKVwOmJaKPRPjr9V8WHBe9Qtr.jpg",
-              Colors.grey.withOpacity(.3),
-              "Test",
-              "Latihan mengerjakan soal tentang bahasa daerah",
+              (sectionIndex == 2) ? Colors.green : Colors.grey.withOpacity(.3),
+              "DASAR 3",
+              "Nama-nama permainan",
               false,
-                () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Test()));
+                ()  async {
+                  int result = await Navigator.push(context, MaterialPageRoute(builder: (context) => Basic3()));
+                  setState(() {
+                    sectionIndex = result;
+                    print(result);
+                  });
                 }
             ),
-            widgetCard("Level 2"),
+            widgetCard("Level 2", false),
             widgetMateri(
-                "https://faroidcs.files.wordpress.com/2012/04/murda.jpg",
-                Colors.green,
-                "Aksara 2",
-                "Belajar mengenal aksara",
-                true,
-                () {
-
-                }
-            ),
-            widgetMateri(
-                "https://img2.pngdownload.id/20181112/cle/kisspng-computer-icons-scalable-vector-graphics-vocabulary-5be94e90d57f39.1424842715420166568745.jpg",
+                "https://img.freepik.com/free-vector/banana-white-background_1308-21517.jpg",
                 Colors.grey.withOpacity(.3),
-                "Kosakata 2",
-                "Belajar menulis kosakata bahasa daerah",
+                "DASAR 1",
+                "Nama-nama makanan 2",
                 true,
-                () {
+                    () {
+                }
+            ),
+            widgetMateri(
+                "https://previews.123rf.com/images/red33/red331202/red33120200071/12152339-angry-mean-leopard-animal-vector-illustration-art.jpg",
+                Colors.grey.withOpacity(.3),
+                "DASAR 2",
+                "Nama-nama hewan 2",
+                true,
+                    () {
 
                 }
             ),
             widgetMateri(
                 "https://img.freepik.com/free-vector/illustration-headphones-icon_53876-5571.jpg?size=338&ext=jpg",
                 Colors.grey.withOpacity(.3),
-                "Mendengarkan 2",
-                "Belajar mendengarkan kosakata bahasa daerah",
-                true,
-                () {
-
-                }
-            ),
-            widgetMateri(
-                "https://img.freepik.com/free-vector/office-workers-talking_23-2147506354.jpg?size=338&ext=jpg",
-                Colors.grey.withOpacity(.3),
-                "Berbicara 2",
-                "Belajar berbicara dalam bahasa daerah",
-                true,
-                () {
-
-                }
-            ),
-            widgetMateri(
-                "https://t4.ftcdn.net/jpg/01/23/05/91/240_F_123059126_s5TJUPAFKVwOmJaKPRPjr9V8WHBe9Qtr.jpg",
-                Colors.grey.withOpacity(.3),
-                "Test 2",
-                "Latihan mengerjakan soal tentang bahasa daerah",
+                "DASAR 3",
+                "Nama-nama permainan 2",
                 false,
-                () {
+                    () {
 
                 }
             ),

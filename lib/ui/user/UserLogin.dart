@@ -143,6 +143,20 @@ class _UserLoginState extends State<UserLogin> {
       ),
     );
 
+    final _widgetRegis = Container(
+      child: FlatButton(
+        onPressed: () {
+          //Navigator.push(context, MaterialPageRoute(builder: (context) => UserRegis));
+        },
+        child: Text(
+          "Registrasi",
+          style: TextStyle(
+            color: Colors.green
+          ),
+        ),
+      ),
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
@@ -158,6 +172,7 @@ class _UserLoginState extends State<UserLogin> {
           _widgetEmail,
           _widgetPassword,
           _widgetLogin,
+          _widgetRegis,
         ],
       ),
     );

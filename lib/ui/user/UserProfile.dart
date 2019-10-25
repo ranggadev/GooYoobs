@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gooyoobs/common/MyColor.dart';
 import 'package:gooyoobs/common/MyFontSize.dart';
 import 'package:gooyoobs/common/MyHelper.dart';
+import 'package:gooyoobs/common/MyStore.dart';
 import 'package:gooyoobs/common/MyString.dart';
 import 'package:gooyoobs/master_layout/MyNetworkImage.dart';
 
@@ -74,7 +75,7 @@ class _UserProfileState extends State<UserProfile> {
                   ),
                   SizedBox(height: 8.0,),
                   Text(
-                    "2000",
+                    MyStore.point.toString(),
                     style: TextStyle(
                       fontSize: MyFontSize.medium2,
                       fontWeight: FontWeight.bold,
