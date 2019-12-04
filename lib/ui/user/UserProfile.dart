@@ -164,7 +164,7 @@ class _UserProfileState extends State<UserProfile> {
       child: TextField(
         //controller: _usernameController,
         decoration: InputDecoration(
-          hintText: MyString.email,
+          hintText: MyString.username,
           hintStyle: TextStyle(
             color: MyHelper.hexToColor(MyColor.greyTextHint),
             fontSize: MyFontSize.medium,
@@ -283,7 +283,7 @@ class _UserProfileState extends State<UserProfile> {
           widgetAvatar,
           SizedBox(height: 16.0,),
           Text(
-            "Rangga Saputra",
+            MyStore.username,
             style: TextStyle(
                 fontSize: MyFontSize.large,
                 fontWeight: FontWeight.bold,

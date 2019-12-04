@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gooyoobs/common/MyFontSize.dart';
+import 'package:gooyoobs/common/MyStore.dart';
 import 'package:gooyoobs/master_layout/MyNetworkImage.dart';
 import 'package:gooyoobs/ui/home/Level.dart';
+import 'package:marquee/marquee.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -66,7 +68,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Text(
-          "Hello, Rangga Saputra" + "!",
+          "Hello, " + MyStore.username + "!",
           style: TextStyle(
               fontSize: 22.0,
               fontWeight: FontWeight.bold,
